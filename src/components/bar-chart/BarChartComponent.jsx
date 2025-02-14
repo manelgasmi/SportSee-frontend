@@ -19,10 +19,9 @@ const BarChartComponent = ({activities}) => {
           }}
         >
           <XAxis dataKey="index" />
-          <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-          <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+          <YAxis yAxisId="left" orientation="left" stroke="#282D30" />
+          <YAxis yAxisId="right" orientation="right" stroke="#E60000" />
           <Tooltip />
-          <Legend />
           <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" />
           <Bar yAxisId="right" dataKey="calories" fill="#E60000" />
         </BarChart>
