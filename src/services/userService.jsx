@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:3000"; // Replace with your actual API URL
+const API_BASE_URL = "http://localhost:3000"; 
 
 // Fetch user basic information
 const fetchUserData = async (userId) => {
@@ -19,7 +19,7 @@ const fetchUserData = async (userId) => {
 const fetchUserActivity = async (userId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}/activity`);
-    return response.data;
+    return response.data.data;
   } catch (error) {
     console.error("Error fetching user activity:", error);
     return null;
@@ -30,7 +30,7 @@ const fetchUserActivity = async (userId) => {
 const fetchUserPerformance = async (userId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}/performance`);
-    return response.data;
+    return response.data.data;
   } catch (error) {
     console.error("Error fetching user performance:", error);
     return null;
