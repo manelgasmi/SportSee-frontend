@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import userService from "../../services/userService";
-import "./Dashboard.scss";
+import "./Dashboard.css";
 import BarChartComponent from "../../components/bar-chart/BarChartComponent";
 
 const Dashboard = () => {
@@ -32,7 +32,7 @@ console.log(user);
   if (user) {
     return (
       <main className="container">
-        <div className="h-10 w-10 border"></div>
+        <div className="text-blue border ">ssssssss</div>
         <h1 className="welcome">
           Bonjour <span>{user.userInfos.firstName}</span>
         </h1>
