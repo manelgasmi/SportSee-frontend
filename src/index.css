@@ -1,34 +1,6 @@
 @import "tailwindcss";
 
-/* CSS Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-  line-height: 1.5;
-  
-  font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul, ol {
-  list-style: none;
+@theme {
+  --color-red-500 : oklch(58.08% 0.2383 29.23);
+  --color-white: #fff;
 }
