@@ -26,6 +26,17 @@ const fetchUserActivity = async (userId) => {
   }
 };
 
+// Fetch user activity (e.g., daily calorie burn, weight tracking)
+const fetchUserSessions = async (userId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/user/${userId}/average-sessions`);
+    return response.data.data;
+  } catch (error) {
+    console.error("Error fetching user activity:", error);
+    return null;
+  }
+};
+
 // Fetch user performance (e.g., endurance, speed, strength)
 const fetchUserPerformance = async (userId) => {
   try {
@@ -42,4 +53,5 @@ export default {
   fetchUserData,
   fetchUserActivity,
   fetchUserPerformance,
+  fetchUserSessions,
 };
