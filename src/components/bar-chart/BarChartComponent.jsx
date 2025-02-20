@@ -27,10 +27,10 @@ const BarChartComponent = ({ activities }) => {
   };
 
   return (
-    <ResponsiveContainer width="100%" height={300} >
+    <ResponsiveContainer width="100%" height={265} >
       <h2 className="ml-10 text-base">Activité quotidienne</h2>
       <BarChart
-        height={300}
+        height={260}
         barSize={10}
         data={transformedData}
         margin={{
