@@ -14,7 +14,7 @@ const PieChartComponent = ({ score }) => {
   return (
     <>
       <div className="score-chart text-gray-900">
-        <h2 className="text-base  z-10 absolute ml-5 mt-4 size-3.5">Score</h2>
+        <h2 className="text-base font-semibold z-10 absolute ml-5 mt-4 size-3.5">Score</h2>
         <div className="score-center">
           <p className="score-percentage">{`${Math.round(score * 100)}%`}</p>
           <p className="score-label">

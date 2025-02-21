@@ -33,21 +33,15 @@ const Dashboard = () => {
       setUserPerformance(userPerformanceData);
     };
 
-    // const getUseruserScore = async () => {
-    //   const userScoreData = await userService.fetchUserScore(userId);
-    //   setUserScore(userScoreData);
-    // };
-
     getUserDetails();
     getUserActivity();
     getUseruserSessions();
     getUseruserPerformance();
-    // getUseruserScore();
   }, []);
 
   if (user) {
     return (
-      <main className="w-full m-[50px] mb-auto  max-w-[1126px] pb-30">
+      <main className="w-full m-[50px] mb-auto  max-w-[1126px] pb-12">
         <h1 className="text-5xl font-bold mb-8">
           Bonjour{" "}
           <span className="text-red-500">{user.userInfos.firstName}</span>
@@ -57,7 +51,7 @@ const Dashboard = () => {
         </p>
         <div className="flex mt-10 gap-10">
           <div className="w-3/4">
-            <div className="bg-lightgray pb-10 pt-4">
+            <div className="bg-lightgray pb-10 pt-4 rounded-md">
               <BarChartComponent activities={userActivities} />
             </div>
             <div className="flex mt-8 gap-6">
@@ -67,12 +61,12 @@ const Dashboard = () => {
               <div className="w-1/3">
                 <RadarChartComponent userPerformance={userPerformance} />
               </div>
-              <div className="w-1/3 bg-lightgray">
+              <div className="w-1/3 bg-lightgray rounded-md">
                 <PieChartComponent score={user.score} />
               </div>
             </div>
           </div>
-          <aside className="w-1/4 rounded-2xl flex flex-col gap-10">
+          <aside className="w-1/4 flex flex-col gap-10">
             <KeyDataComponent keyData={user.keyData} />
           </aside>
         </div>

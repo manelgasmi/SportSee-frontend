@@ -19,7 +19,7 @@ const BarChartComponent = ({ activities }) => {
   }));
   const customiseLegendText = (value, entry) => {
     const { color } = entry;
-    if(value === 'kg') {
+    if (value === "kg") {
       return <span style={{ color }}>Poids ({value})</span>;
     } else {
       return <span style={{ color }}>Calories brûlées ({value})</span>;
@@ -27,7 +27,7 @@ const BarChartComponent = ({ activities }) => {
   };
 
   return (
-    <ResponsiveContainer width="100%" height={265} >
+    <ResponsiveContainer width="100%" height={265}>
       <h2 className="ml-10 text-base">Activité quotidienne</h2>
       <BarChart
         height={260}
@@ -38,7 +38,14 @@ const BarChartComponent = ({ activities }) => {
           bottom: 10,
         }}
       >
-        <Legend iconType="circle" iconSize="8" formatter={customiseLegendText} verticalAlign="top" align="right" height={100} />
+        <Legend
+          iconType="circle"
+          iconSize="8"
+          formatter={customiseLegendText}
+          verticalAlign="top"
+          align="right"
+          height={100}
+        />
         <XAxis dataKey="index" tick={{ dy: 20 }} />
         <YAxis yAxisId="left" orientation="left" stroke="#282D30" />
         <YAxis yAxisId="right" orientation="right" stroke="#E60000" />

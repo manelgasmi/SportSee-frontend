@@ -4,9 +4,10 @@
   --color-red-500 : oklch(58.08% 0.2383 29.23);
   --color-red-500-opacity-10: oklch(58.08% 0.2383 29.23 / 0.1); 
   --color-blue-500-opacity-10: #4AB8FF1A;
-  --color-yellow-500-opacity-10: #F9CE231A; /* Yellow with 10% opacity */
-  --color-pink-500-opacity-10: #FD51811A; /* 10% opacity */
+  --color-yellow-500-opacity-10: #F9CE231A; 
+  --color-pink-500-opacity-10: #FD51811A; 
   --color-darkgray: #282D30;
   --color-lightgray: #FBFBFB;
+  --color-lightgray: #aaa;
 
 }
