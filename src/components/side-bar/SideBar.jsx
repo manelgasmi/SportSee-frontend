@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
-    <div className="flex-none h-full w-[117px] bg-black flex flex-col justify-evenly items-center text-white min-h-[125vh]">
+    <div className="flex-none w-[117px] bg-black flex flex-col justify-evenly items-center text-white min-h-[125vh]">
       <div className="shortcuts flex flex-col gap-[20px]">
         <Link to="/">
           <div className="flex justify-center items-center bg-white w-[64px] h-[64px] rounded-md ">

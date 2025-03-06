@@ -49,8 +49,8 @@ const Dashboard = () => {
         <p className="congratulation">
           Félicitation ! Vous avez explosé vos objectifs hier 👏
         </p>
-        <div className="flex mt-10 gap-10">
-          <div className="w-3/4">
+        <div className="flex flex-col xl:flex-row mt-10 gap-10">
+          <div className=" w-full xl:w-3/4">
             <div className="bg-lightgray pb-10 pt-4 rounded-md">
               <BarChartComponent activities={userActivities} />
             </div>
@@ -66,7 +66,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <aside className="w-1/4 flex flex-col gap-10">
+          <aside className="flex-wrap w-full xl:w-1/4 flex flex-row xl:flex-col justify-between">
             <KeyDataComponent keyData={user.keyData} />
           </aside>
         </div>

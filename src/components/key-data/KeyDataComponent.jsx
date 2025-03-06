@@ -41,11 +41,10 @@ const KeyDataComponent = ({ keyData }) => {
       ]);
   }, []);
 
-  console.log(keyData);
   return (
     <>
       {keyDataList.map((data) => (
-        <div key={data.name} className="flex bg-lightgray rounded-md p-8 text-center gap-6">
+        <div key={data.name} className="w-[49%] xl:w-full  mb-4 flex bg-lightgray rounded-md p-8 text-center gap-6">
           <div className={data.color + " w-[60px] h-[60px] flex items-center justify-center "} >
             <img src={data.icon} alt={data.name} className="spent-energy--icon" />
           </div>
