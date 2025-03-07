@@ -15,7 +15,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     const getUserDetails = async () => {
-      const userData = await userService.fetchUserData(userId);      
+      const userData = await userService.fetchUserData(userId);
+
       setUser(userData);
     };
     const getUserActivity = async () => {
@@ -52,22 +53,27 @@ const Dashboard = () => {
         <div className="flex flex-col xl:flex-row mt-10 gap-10">
           <div className=" w-full xl:w-3/4">
             <div className="bg-lightgray pb-10 pt-4 rounded-md">
-              <BarChartComponent activities={userActivities} />
+              {userActivities && (
+                // call the component only if userActivities is not null
+                <BarChartComponent activities={userActivities} />
+              )}
             </div>
             <div className="flex mt-8 gap-6">
               <div className="w-1/3">
-                <LineChartComponent sessions={userSessions} />
+                {userSessions && <LineChartComponent sessions={userSessions} />}
               </div>
               <div className="w-1/3">
-                <RadarChartComponent userPerformance={userPerformance} />
+                {userPerformance && (
+                  <RadarChartComponent userPerformance={userPerformance} />
+                )}
               </div>
               <div className="w-1/3 bg-lightgray rounded-md">
-                <PieChartComponent score={user.score} />
+                {user.score && <PieChartComponent score={user.score} />}
               </div>
             </div>
           </div>
           <aside className="flex-wrap w-full xl:w-1/4 flex flex-row xl:flex-col justify-between">
-            <KeyDataComponent keyData={user.keyData} />
+            {user.keyData && <KeyDataComponent keyData={user.keyData} />}
           </aside>
         </div>
       </main>

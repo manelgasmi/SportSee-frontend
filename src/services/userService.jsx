@@ -1,17 +1,18 @@
 import axios from "axios";
-
+import mockedData from '../mock/mockedData.json';
 const API_BASE_URL = "http://localhost:3000"; 
 
 // Fetch user basic information
-const fetchUserData = async (userId) => {
+const fetchUserData = async (userId) => {  
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}`);
     const userData = response.data.data;
     userData.score = userData.todayScore ? userData.todayScore : userData.score;
     return userData;
   } catch (error) {
-    console.error("Error fetching user data:", error);
-    return null;
+    console.error("Error fetching user data from server:", error);
+    mockedData.UserInformation[0].score = mockedData.UserInformation[0].todayScore
+    return mockedData.UserInformation[0];
   }
 };
 
@@ -22,7 +23,7 @@ const fetchUserActivity = async (userId) => {
     return response.data.data;
   } catch (error) {
     console.error("Error fetching user activity:", error);
-    return null;
+    return mockedData.UserActivity[0];
   }
 };
 
@@ -33,7 +34,7 @@ const fetchUserSessions = async (userId) => {
     return response.data.data;
   } catch (error) {
     console.error("Error fetching user activity:", error);
-    return null;
+    return mockedData.UserAverageSessions[0];
   }
 };
 
@@ -44,7 +45,7 @@ const fetchUserPerformance = async (userId) => {
     return response.data.data;
   } catch (error) {
     console.error("Error fetching user performance:", error);
-    return null;
+    return mockedData.UserPerformance[0];
   }
 };
 
