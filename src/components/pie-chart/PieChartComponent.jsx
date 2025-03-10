@@ -2,6 +2,16 @@ import { useEffect, useState } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import "./score.css";
 
+/**
+ * PieChartComponent - Displays a pie chart representing the score.
+ *
+ * @component
+ *
+ * @param {*} props - The component props.
+ * @param {*} props.score - The score value (expected between 0 and 1).
+ *
+ * @returns {JSX.Element} The pie chart component.
+ */
 const PieChartComponent = ({ score }) => {
   const [data, setData] = useState([]);
 

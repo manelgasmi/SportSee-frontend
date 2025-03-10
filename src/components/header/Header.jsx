@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 
+/**
+ * Header component
+ *
+ * @returns {*} 
+ */
 const Header = () => {
   return (
     <nav className="bg-black text-white flex justify-between py-4 px-8 items-center shadow-[2px_2px_7px_2px_rgba(0,0,0,0.62)]">

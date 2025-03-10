@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/dashboard/Dashboard.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/dashboard/Dashboard.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from "react";
+import userService from "../../services/userService";
+
+import BarChartComponent from "../../components/bar-chart/BarChartComponent";
+import LineChartComponent from "../../components/line-chart/LineChartComponent";
+import RadarChartComponent from "../../components/radarChartComponent/RadarChartComponent";
+import KeyDataComponent from "../../components/key-data/KeyDataComponent";
+import PieChartComponent from "../../components/pie-chart/PieChartComponent";
+
+/**
+ * Dashboard component
+ *
+ * @returns {JSX.Element} 
+ */
+const Dashboard = () => {
+  const userId = 18;
+  const [user, setUser] = useState(null);
+  const [userActivities, setUserActivities] = useState(null);
+  const [userSessions, setUserSessions] = useState(null);
+  const [userPerformance, setUserPerformance] = useState(null);
+
+  useEffect(() => {
+    const getUserDetails = async () => {
+      const userData = await userService.fetchUserData(userId);
+
+      setUser(userData);
+    };
+    const getUserActivity = async () => {
+      const userActivityData = await userService.fetchUserActivity(userId);
+      setUserActivities(userActivityData);
+    };
+    const getUseruserSessions = async () => {
+      const userSessionsData = await userService.fetchUserSessions(userId);
+      setUserSessions(userSessionsData.sessions);
+    };
+    const getUseruserPerformance = async () => {
+      const userPerformanceData = await userService.fetchUserPerformance(
+        userId
+      );
+      setUserPerformance(userPerformanceData);
+    };
+
+    getUserDetails();
+    getUserActivity();
+    getUseruserSessions();
+    getUseruserPerformance();
+  }, []);
+
+  if (user) {
+    return (
+      &lt;main className="w-full m-[50px] mb-auto  max-w-[1126px] pb-12">
+        &lt;h1 className="text-5xl font-bold mb-8">
+          Bonjour{" "}
+          &lt;span className="text-red-500">{user.userInfos.firstName}&lt;/span>
+        &lt;/h1>
+        &lt;p className="congratulation">
+          Félicitation ! Vous avez explosé vos objectifs hier 👏
+        &lt;/p>
+        &lt;div className="flex flex-col xl:flex-row mt-10 gap-10">
+          &lt;div className=" w-full xl:w-3/4">
+            &lt;div className="bg-lightgray pb-10 pt-4 rounded-md">
+              {userActivities &amp;&amp; (
+                // call the component only if userActivities is not null
+                &lt;BarChartComponent activities={userActivities} />
+              )}
+            &lt;/div>
+            &lt;div className="flex mt-8 gap-6">
+              &lt;div className="w-1/3">
+                {userSessions &amp;&amp; &lt;LineChartComponent sessions={userSessions} />}
+              &lt;/div>
+              &lt;div className="w-1/3">
+                {userPerformance &amp;&amp; (
+                  &lt;RadarChartComponent userPerformance={userPerformance} />
+                )}
+              &lt;/div>
+              &lt;div className="w-1/3 bg-lightgray rounded-md">
+                {user.score &amp;&amp; &lt;PieChartComponent score={user.score} />}
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+          &lt;aside className="flex-wrap w-full xl:w-1/4 flex flex-row xl:flex-col justify-between">
+            {user.keyData &amp;&amp; &lt;KeyDataComponent keyData={user.keyData} />}
+          &lt;/aside>
+        &lt;/div>
+      &lt;/main>
+    );
+  } else {
+    return (
+      &lt;main className="w-full m-[55px] mb-auto ml-[100px] max-w-[1126px]">
+        &lt;h1>Chargement...&lt;/h1>
+      &lt;/main>
+    );
+  }
+};
+
+export default Dashboard;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#API_BASE_URL">API_BASE_URL</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#BarChartComponent">BarChartComponent</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyDataComponent">KeyDataComponent</a></li><li><a href="global.html#LineChartComponent">LineChartComponent</a></li><li><a href="global.html#Navigation">Navigation</a></li><li><a href="global.html#PieChartComponent">PieChartComponent</a></li><li><a href="global.html#RadarChartComponent">RadarChartComponent</a></li><li><a href="global.html#SideBar">SideBar</a></li><li><a href="global.html#daysMap">daysMap</a></li><li><a href="global.html#fetchUserActivity">fetchUserActivity</a></li><li><a href="global.html#fetchUserData">fetchUserData</a></li><li><a href="global.html#fetchUserPerformance">fetchUserPerformance</a></li><li><a href="global.html#fetchUserSessions">fetchUserSessions</a></li><li><a href="global.html#kinds">kinds</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Mon Mar 10 2025 11:06:47 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

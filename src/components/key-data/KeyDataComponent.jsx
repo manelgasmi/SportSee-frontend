@@ -5,6 +5,16 @@ import proteinIcon from "/src/assets/images/chicken.svg";
 import fatIcon from "/src/assets/images/cheeseburger.svg";
 import carbsIcon from "/src/assets/images/apple.svg";
 
+/**
+ * KeyDataComponent - Displays nutritional key data in a card format.
+ *
+ * @component
+ *
+ * @param {*} props - The component props.
+ * @param {*} props.keyData - The key nutrition data .
+ *
+ * @returns {JSX.Element} The rendered key data component.
+ */
 const KeyDataComponent = ({ keyData }) => {
   const [keyDataList, setKeyDataList] = useState([]);
 

@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * SideBar component
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The sidebar component.
+ */
 const SideBar = () => {
   return (
     <div className="flex-none w-[117px] bg-black flex flex-col justify-evenly items-center text-white min-h-[125vh]">

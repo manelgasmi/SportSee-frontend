@@ -10,6 +10,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+/**
+ * BarChartComponent - Displays a bar chart of activity data.
+ *
+ * @component
+ *
+ * @param {*} props - The component props.
+ * @param {*} props.activities - The activity data.
+ *
+ * @returns {JSX.Element} The rendered bar chart.
+ */
 const BarChartComponent = ({ activities }) => {
   const transformedData = activities.sessions.map((item, i) => ({
     ...item,

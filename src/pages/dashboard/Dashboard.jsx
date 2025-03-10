@@ -6,6 +6,12 @@ import LineChartComponent from "../../components/line-chart/LineChartComponent";
 import RadarChartComponent from "../../components/radarChartComponent/RadarChartComponent";
 import KeyDataComponent from "../../components/key-data/KeyDataComponent";
 import PieChartComponent from "../../components/pie-chart/PieChartComponent";
+
+/**
+ * Dashboard component
+ *
+ * @returns {JSX.Element} 
+ */
 const Dashboard = () => {
   const userId = 18;
   const [user, setUser] = useState(null);

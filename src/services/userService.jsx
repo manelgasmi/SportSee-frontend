@@ -1,8 +1,19 @@
 import axios from "axios";
 import mockedData from '../mock/mockedData.json';
+/**
+ * Api URL
+ *
+ * @type {"http://localhost:3000"}
+ */
 const API_BASE_URL = "http://localhost:3000"; 
 
-// Fetch user basic information
+/**
+ * Fetch user basic information
+ *
+ * @async
+ * @param {*} userId 
+ * @returns {unknown} 
+ */
 const fetchUserData = async (userId) => {  
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}`);
@@ -16,7 +27,13 @@ const fetchUserData = async (userId) => {
   }
 };
 
-// Fetch user activity (e.g., daily calorie burn, weight tracking)
+/**
+ * Fetch user activity (e.g., daily calorie burn, weight tracking)
+ *
+ * @async
+ * @param {*} userId 
+ * @returns {unknown} 
+ */
 const fetchUserActivity = async (userId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}/activity`);
@@ -27,7 +44,13 @@ const fetchUserActivity = async (userId) => {
   }
 };
 
-// Fetch user activity (e.g., daily calorie burn, weight tracking)
+/**
+ * Fetch user sessions
+ *
+ * @async
+ * @param {*} userId 
+ * @returns {unknown} 
+ */
 const fetchUserSessions = async (userId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}/average-sessions`);
@@ -38,7 +61,13 @@ const fetchUserSessions = async (userId) => {
   }
 };
 
-// Fetch user performance (e.g., endurance, speed, strength)
+/**
+ * Fetch user performance (e.g., endurance, speed, strength)
+ *
+ * @async
+ * @param {*} userId 
+ * @returns {unknown} 
+ */
 const fetchUserPerformance = async (userId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}/performance`);

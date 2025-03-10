@@ -6,6 +6,12 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
+
+/**
+ * Kind mapping object - Translates numerical keys to activity names.
+ *
+ * @type {Object.<number, string>}
+ */
 const kinds = {
     1: 'Cardio',
     2: 'Energie',
@@ -14,6 +20,17 @@ const kinds = {
     5: 'Vitesse',
     6: 'Intensité'
 }
+
+/**
+ * RadarChartComponent - Displays a radar chart based on user performance data.
+ *
+ * @component
+ *
+ * @param {*} props - The component props.
+ * @param {*} props.userPerformance - The user performance data.
+ *
+ * @returns {JSX.Element} The radar chart component.
+ */
 const RadarChartComponent = ({ userPerformance }) => {
   // Map the data to include the kind names
   const formattedData = userPerformance.data.map((item) => ({

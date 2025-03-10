@@ -4,6 +4,11 @@ import Header from "./components/header/Header";
 import Navigation from "./navigation/Navigation";
 import { BrowserRouter } from "react-router-dom";
 
+/**
+ * App component
+ *
+ * @returns {*} 
+ */
 const App = () => {
   return (
     <BrowserRouter>

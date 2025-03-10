@@ -10,6 +10,11 @@ import {
 import { useState } from "react";
 import CustomCursor from "./CustomCursor";
 
+/**
+ * Match Days with numbers Object
+ *
+ * @type {Object.<number, string>}
+ */
 const daysMap = {
   1: "L",
   2: "M",
@@ -19,6 +24,17 @@ const daysMap = {
   6: "S",
   7: "D",
 };
+
+/**
+ * LineChartComponent - Displays a user's session duration data.
+ *
+ * @component
+ *
+ * @param {*} props - The component props.
+ * @param {*} props.sessions - The session data.
+ *
+ * @returns {JSX.Element} The rendered line chart.
+ */
 const LineChartComponent = ({ sessions }) => {
   return (
     <ResponsiveContainer width="100%" height={263}>
