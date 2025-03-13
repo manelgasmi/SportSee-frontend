@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Card from "../card/Card";
 
 /**
  * SideBar component
@@ -9,32 +10,23 @@ import { Link } from "react-router-dom";
  * @returns {JSX.Element} The sidebar component.
  */
 const SideBar = () => {
+  const shortcuts = [
+    { image: "/src/assets/images/meditate.png", link: "/" },
+    { image: "/src/assets/images/swim.png", link: "/" },
+    { image: "/src/assets/images/bycicle.png", link: "/" },
+    { image: "/src/assets/images/weight.png", link: "/" },
+  ];
   return (
-    <div className="flex-none w-[117px] bg-black flex flex-col justify-evenly items-center text-white min-h-[125vh]">
-      <div className="shortcuts flex flex-col gap-[20px]">
-        <Link to="/">
-          <div className="flex justify-center items-center bg-white w-[64px] h-[64px] rounded-md ">
-            <img src="/src/assets/images/meditate.png" />
-          </div>
-        </Link>
-        <Link to="/">
-          <div className="flex justify-center items-center bg-white w-[64px] h-[64px] rounded-md ">
-            <img src="/src/assets/images/swim.png" />
-          </div>
-        </Link>
-        <Link to="/">
-          <div className="flex justify-center items-center bg-white w-64px h-[64px] rounded-md ">
-            <img src="/src/assets/images/bycicle.png" />
-          </div>
-        </Link>
-        <Link to="/">
-          <div className="flex justify-center items-center bg-white w-64px h-[64px] rounded-md ">
-            <img src="/src/assets/images/weight.png" />
-          </div>
-        </Link>
+    <div className="flex-none w-[117px] bg-black flex flex-col 
+    justify-evenly items-center text-white min-h-[125vh]">
+      <div className="flex flex-col gap-[20px]">
+        {shortcuts.map((shortcut, index) => (
+          <Card key={index} image={shortcut.image} link={shortcut.link} />
+        ))}
       </div>
+
       <div className="[writing-mode:sideways-lr] [text-orientation:mixed] ">
-        <p>Copiryght, SportSee 2020</p>
+        <p>Copyright, SportSee 2020</p>
       </div>
     </div>
   );

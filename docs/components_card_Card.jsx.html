@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/header/Header.jsx</title>
+    <title>JSDoc: Source: components/card/Card.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/header/Header.jsx</h1>
+    <h1 class="page-title">Source: components/card/Card.jsx</h1>
 
     
 
@@ -26,36 +26,34 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { Link } from "react-router-dom";
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { Link } from "react-router-dom";
 
 /**
- * Header component
+ * Card component for displaying a shortcut link with an image.
  *
- * @returns {*} 
+ * @component
+ *
+ * @param {*} props - The component props.
+ * @param {*} props.image - The the image path.
+ * @param {*} props.link - The path link.
+ *
+ * @returns {JSX.Element} The rendered Card component.
  */
-const Header = () => {
+const Card = ({ image, link }) => {
   return (
-    &lt;nav className="bg-black text-white flex justify-between py-4 px-8 items-center shadow-[2px_2px_7px_2px_rgba(0,0,0,0.62)]">
-      &lt;Link className="flex justify-center items-center" to="/">
-        &lt;img src="/src/assets/images/logo.png" alt="Logo" width="170" />
+    &lt;>
+      &lt;Link to={link}>
+        &lt;div className="flex justify-center items-center bg-white w-[64px] h-[64px]
+         rounded-md ">
+          &lt;img src={image} alt="Shortcut" />
+        &lt;/div>
       &lt;/Link>
-      &lt;Link to="/">
-        &lt;h3 className="text-2xl">Accueil&lt;/h3>
-      &lt;/Link>
-      &lt;Link to="/">
-        &lt;h3 className="text-2xl">Profil&lt;/h3>
-      &lt;/Link>
-      &lt;Link to="/">
-        &lt;h3 className="text-2xl">Réglages&lt;/h3>
-      &lt;/Link>
-      &lt;Link to="/">
-        &lt;h3 className="text-2xl">Communauté&lt;/h3>
-      &lt;/Link>
-    &lt;/nav>
+    &lt;/>
   );
 };
 
-export default Header;
+export default Card;
 </code></pre>
         </article>
     </section>
