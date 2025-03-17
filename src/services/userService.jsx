@@ -1,28 +1,31 @@
 import axios from "axios";
-import mockedData from '../mock/mockedData.json';
+import mockedData from "../mock/mockedData.json";
 /**
  * Api URL
  *
  * @type {"http://localhost:3000"}
  */
-const API_BASE_URL = "http://localhost:3000"; 
+const API_BASE_URL = "http://localhost:3000";
 
+// Get the mock use from .env
+const IS_MOCK = import.meta.env.VITE_IS_MOCK === "true";
 /**
  * Fetch user basic information
  *
  * @async
- * @param {*} userId 
- * @returns {unknown} 
+ * @param {*} userId
+ * @returns {unknown}
  */
-const fetchUserData = async (userId) => {  
-  try {
+const fetchUserData = async (userId) => {
+  //if IS_MOCK===false, then we call backend api, else we directly use mock without calling backend api
+  if (!IS_MOCK) {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}`);
     const userData = response.data.data;
     userData.score = userData.todayScore ? userData.todayScore : userData.score;
     return userData;
-  } catch (error) {
-    console.error("Error fetching user data from server:", error);
-    mockedData.UserInformation[0].score = mockedData.UserInformation[0].todayScore
+  } else {
+    mockedData.UserInformation[0].score =
+      mockedData.UserInformation[0].todayScore;
     return mockedData.UserInformation[0];
   }
 };
@@ -31,15 +34,14 @@ const fetchUserData = async (userId) => {
  * Fetch user activity (e.g., daily calorie burn, weight tracking)
  *
  * @async
- * @param {*} userId 
- * @returns {unknown} 
+ * @param {*} userId
+ * @returns {unknown}
  */
 const fetchUserActivity = async (userId) => {
-  try {
+  if (!IS_MOCK) {
     const response = await axios.get(`${API_BASE_URL}/user/${userId}/activity`);
     return response.data.data;
-  } catch (error) {
-    console.error("Error fetching user activity:", error);
+  } else {
     return mockedData.UserActivity[0];
   }
 };
@@ -48,15 +50,16 @@ const fetchUserActivity = async (userId) => {
  * Fetch user sessions
  *
  * @async
- * @param {*} userId 
- * @returns {unknown} 
+ * @param {*} userId
+ * @returns {unknown}
  */
 const fetchUserSessions = async (userId) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/user/${userId}/average-sessions`);
+  if (!IS_MOCK) {
+    const response = await axios.get(
+      `${API_BASE_URL}/user/${userId}/average-sessions`
+    );
     return response.data.data;
-  } catch (error) {
-    console.error("Error fetching user activity:", error);
+  } else {
     return mockedData.UserAverageSessions[0];
   }
 };
@@ -65,15 +68,16 @@ const fetchUserSessions = async (userId) => {
  * Fetch user performance (e.g., endurance, speed, strength)
  *
  * @async
- * @param {*} userId 
- * @returns {unknown} 
+ * @param {*} userId
+ * @returns {unknown}
  */
 const fetchUserPerformance = async (userId) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/user/${userId}/performance`);
+  if (!IS_MOCK) {
+    const response = await axios.get(
+      `${API_BASE_URL}/user/${userId}/performance`
+    );
     return response.data.data;
-  } catch (error) {
-    console.error("Error fetching user performance:", error);
+  } else {
     return mockedData.UserPerformance[0];
   }
 };
